@@ -6,7 +6,10 @@ RUN apt-get update && \
 
 RUN docker-php-ext-install pgsql pdo pdo_pgsql
 
+COPY start.sh /usr/local/bin
 
-RUN git clone https://tt-rss.org/git/tt-rss.git /var/www/html/tt-rss
+RUN chmod +x /usr/local/bin/start.sh
+
+CMD ["start.sh"]
 
 
